@@ -25,7 +25,7 @@ public class EmployeeController {
         List<Employee> allEmployees = employeeDAO.getAllEmployees();
         model.addAttribute("allEmps", allEmployees);
 
-        return "all-employees";
+        return "all-employees-view";
     }
 
 }

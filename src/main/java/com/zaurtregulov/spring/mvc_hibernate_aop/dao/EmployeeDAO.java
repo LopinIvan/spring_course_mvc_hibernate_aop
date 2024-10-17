@@ -1,7 +1,6 @@
 package com.zaurtregulov.spring.mvc_hibernate_aop.dao;
 
 import com.zaurtregulov.spring.mvc_hibernate_aop.entity.Employee;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

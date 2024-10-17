@@ -13,8 +13,8 @@
 <div class="container">
 
     <div class="content">
-
-        <h2>Добро пожаловать в систему.</h2>
+        <br>
+        <h2>Таблица работников компании "LopIv corporate"</h2>
 
 <table>
 

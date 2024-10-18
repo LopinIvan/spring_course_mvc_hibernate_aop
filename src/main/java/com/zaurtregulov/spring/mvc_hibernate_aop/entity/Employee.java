@@ -24,7 +24,7 @@ public class Employee {
     private int salary;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employee_details_id")
+    @JoinColumn(name = "emp_id")
     private EmpDetails empDetails;
 
     public Employee() {

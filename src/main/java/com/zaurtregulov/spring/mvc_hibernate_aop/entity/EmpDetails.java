@@ -23,9 +23,8 @@ public class EmpDetails {
     @Column(name = "emp_details_rating")
     private int rating;
 
-    @OneToOne(mappedBy = "empDetails"
-            , cascade = {CascadeType.REFRESH, CascadeType.PERSIST
-            , CascadeType.MERGE, CascadeType.DETACH})
+    @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "emp_id")
     private Employee employee;
 
     public EmpDetails() {

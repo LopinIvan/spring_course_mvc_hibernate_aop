@@ -23,6 +23,7 @@
                 <th>Номер телефона</th>
                 <th>Пароль</th>
                 <th>Рейтинг</th>
+                <th>Операции</th>
             </tr>
 
             <tr>
@@ -30,6 +31,8 @@
                 <td>${empDetails.phoneNumber}</td>
                 <td>${empDetails.password}</td>
                 <td>${empDetails.rating}</td>
+                <td><input type="button" class="btn" value="Назад"
+                           onclick="window.history.back()"/></td>
             </tr>
 
         </table>

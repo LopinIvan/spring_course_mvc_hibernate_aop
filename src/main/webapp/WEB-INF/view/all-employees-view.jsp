@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +24,7 @@
         <th>Фамилия</th>
         <th>Отдел</th>
         <th>Зарплата</th>
+        <th>Операции</th>
     </tr>
 
 
@@ -33,11 +35,18 @@
             <td>${emp.lastName}</td>
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
+            <td><input type="button" class="btn" value="Посмотреть детали"
+                       onclick="window.location.href= 'details/' + ${emp.id}"/></td>
         </tr>
 
     </c:forEach>
 
 </table>
+
+    <input type="button" class="btn" value="Добавить работника"
+    onclick="window.location.href= 'addNewEmployee'"/>
+    <br><br>
+
 </div>
 
     <div class="background-overlay"></div>

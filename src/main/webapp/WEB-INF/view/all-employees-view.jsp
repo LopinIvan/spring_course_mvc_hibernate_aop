@@ -35,7 +35,7 @@
         </c:url>
 
         <c:url var="detailButton" value="/details">
-            <c:param name="empId" value="${emp.id}"/>
+            <c:param name="empId" value="${emp.empDetails.id}"/>
         </c:url>
 
         <tr>

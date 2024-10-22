@@ -31,8 +31,9 @@
                 <td>${empDetails.phoneNumber}</td>
                 <td>${empDetails.password}</td>
                 <td>${empDetails.rating}</td>
-                <td><input type="button" class="btn" value="Назад"
-                           onclick="window.history.back()"/></td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/" class="btn">Назад</a>
+                </td>
             </tr>
 
         </table>

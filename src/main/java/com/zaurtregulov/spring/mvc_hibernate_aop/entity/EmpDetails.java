@@ -23,8 +23,9 @@ public class EmpDetails {
     @Column(name = "emp_details_rating")
     private int rating;
 
+    // Связь один-к-одному с Employee (внешний ключ emp_id в таблице employee)
     @OneToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "emp_id")
+    @JoinColumn(name = "emp_id")
     private Employee employee;
 
     public EmpDetails() {

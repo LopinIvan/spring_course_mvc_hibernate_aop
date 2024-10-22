@@ -18,6 +18,9 @@
 
         <form:form action="saveNewEmployee" modelAttribute="employee">
 
+            <form:hidden path="id"/>
+            <form:hidden path="empDetails.id"/>
+
             <!-- Поля для Employee -->
             Имя <form:input path="firstName"/>
             <br><br>
@@ -39,6 +42,7 @@
             <br><br>
 
             <input type="submit" class="btn" value="Добавить">
+            <a href="${pageContext.request.contextPath}/" class="btn">Назад</a>
 
         </form:form>
         <br>

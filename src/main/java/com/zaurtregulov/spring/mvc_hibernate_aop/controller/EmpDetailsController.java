@@ -5,8 +5,8 @@ import com.zaurtregulov.spring.mvc_hibernate_aop.service.EmpDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EmpDetailsController {
@@ -18,13 +18,13 @@ public class EmpDetailsController {
         this.empDetailsService = empDetailsService;
     }
 
-    @RequestMapping("/details/{id}")
-    public String showEmpDetails(@PathVariable("id") int id, Model model) {
+    @RequestMapping("/details")
+    public String showEmpDetails(@RequestParam("empId") int id, Model model) {
 
         EmpDetails empDetails = empDetailsService.getEmpDetails(id);
         model.addAttribute("empDetails", empDetails);
 
-        return "emp-details-view";
+        return "details-employee-view";
     }
 
 }

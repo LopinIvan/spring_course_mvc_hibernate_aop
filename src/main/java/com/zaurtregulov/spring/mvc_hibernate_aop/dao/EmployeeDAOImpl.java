@@ -22,7 +22,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     public List<Employee> getAllEmployees() {
 
         Session session = sessionFactory.getCurrentSession();
-        List<Employee> allEmployees = session.createQuery("from Employee"
+        List<Employee> allEmployees = session.createQuery("from Employee order by id"
                 , Employee.class).getResultList();
 
         return allEmployees;
@@ -33,7 +33,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         Session session = sessionFactory.getCurrentSession();
 
-        session.persist(employee);
+        session.merge(employee);
 
+    }
+
+    @Override
+    public Employee getEmployeeById(int id) {
+
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee = session.get(Employee.class, id);
+
+        return employee;
     }
 }

@@ -30,13 +30,25 @@
 
     <c:forEach var="emp" items="${allEmps}">
 
+        <c:url var="updateButton" value="/updateEmployee">
+            <c:param name="empId" value="${emp.id}"/>
+        </c:url>
+
+        <c:url var="detailButton" value="/details">
+            <c:param name="empId" value="${emp.id}"/>
+        </c:url>
+
         <tr>
             <td>${emp.firstName}</td>
             <td>${emp.lastName}</td>
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
-            <td><input type="button" class="btn" value="Посмотреть детали"
-                       onclick="window.location.href= 'details/' + ${emp.id}"/></td>
+            <td>
+                <input type="button" class="btn" value="Изменить"
+                       onclick="window.location.href='${updateButton}'">
+                <input type="button" class="btn" value="Посмотреть детали"
+                       onclick="window.location.href= '${detailButton}'"/>
+            </td>
         </tr>
 
     </c:forEach>

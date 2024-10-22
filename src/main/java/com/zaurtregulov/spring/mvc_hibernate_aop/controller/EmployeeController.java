@@ -1,5 +1,6 @@
 package com.zaurtregulov.spring.mvc_hibernate_aop.controller;
 
+import com.zaurtregulov.spring.mvc_hibernate_aop.entity.EmpDetails;
 import com.zaurtregulov.spring.mvc_hibernate_aop.entity.Employee;
 import com.zaurtregulov.spring.mvc_hibernate_aop.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -41,13 +43,40 @@ public class EmployeeController {
     @RequestMapping("saveNewEmployee")
     public String saveNewEmployee(@ModelAttribute("employee") Employee employee) {
 
+        EmpDetails empDetails = employee.getEmpDetails();
+        if (empDetails != null) {
+            empDetails.setEmployee(employee);   // Установим обратную связь с сотрудником
+        }
+
         employeeService.saveNewEmployee(employee);
 
         return "redirect:/";
     }
 
-    @RequestMapping("/back")
-    public String back() {
-        return "redirect:/";
+    @RequestMapping("/updateEmployee")
+    public String updateEmployee(@RequestParam("empId") int id, Model model) {
+
+        Employee employee = employeeService.getEmployeeById(id);
+        model.addAttribute("employee", employee);
+
+        return "add-employee-view";
+
     }
 }
+
+//    public void deleteEmployee(int id) {
+//        // Получаем сотрудника по ID
+//        Employee employee = employeeService.getEmployeeById(id);
+//
+//        if (employee != null) {
+//            // Получаем детали сотрудника
+//            EmpDetails empDetails = employee.getEmpDetails();
+//
+//            // Очищаем обратную связь, если детали существуют
+//            if (empDetails != null) {
+//                empDetails.setEmployee(null); // Удаляем обратную связь
+//            }
+//
+//            // Удаляем сотрудника
+//            employeeService.deleteEmployee(employee); // Удаление приводит к каскадному удалению деталей
+//        }

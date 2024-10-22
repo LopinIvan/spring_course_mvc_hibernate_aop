@@ -23,6 +23,7 @@ public class Employee {
     @Column(name = "emp_salary")
     private int salary;
 
+    // Связь один-к-одному с EmpDetails
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private EmpDetails empDetails;
 
@@ -81,7 +82,13 @@ public class Employee {
     }
 
     public void setEmpDetails(EmpDetails empDetails) {
+        if (this.empDetails != null) {      // Очищаем обратную связь, если empDetails был ранее установлен
+            this.empDetails.setEmployee(null);
+        }
         this.empDetails = empDetails;
+        if(empDetails != null) {
+            empDetails.setEmployee(this);   // Устанавливаем обратную связь только если empDetails не равен null
+        }
     }
 
     @Override

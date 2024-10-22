@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <!DOCTYPE html>
 <html>
@@ -41,7 +42,18 @@
             Рейтинг <form:input path="empDetails.rating"/>
             <br><br>
 
-            <input type="submit" class="btn" value="Добавить">
+            <!-- Условие отображения кнопок -->
+            <c:choose>
+                <c:when test="${not empty employee.firstName}">
+                    <!-- Если id существует, это обновление -->
+                    <input type="submit" class="btn" value="Обновить">
+                </c:when>
+                <c:otherwise>
+                    <!-- Если id пустое, это добавление нового сотрудника -->
+                    <input type="submit" class="btn" value="Добавить">
+                </c:otherwise>
+            </c:choose>
+
             <a href="${pageContext.request.contextPath}/" class="btn">Назад</a>
 
         </form:form>

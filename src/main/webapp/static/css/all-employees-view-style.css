@@ -56,7 +56,7 @@ th {
 
 /*oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*/
 
-.btn {
+.btn1 {
     background-color: transparent; /* цвет фона */
     color: #000000; /* цвет текста */
     border: 2px solid #000000; /* границы */
@@ -71,14 +71,41 @@ th {
     transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
 }
 
-.btn:hover {
+.btn1:hover {
     background-color: rgba(38, 113, 0, 0.6); /* Более темный зеленый цвет при наведении */
     transform: translateY(-2px); /* Немного приподнимает кнопку при наведении */
 }
 
-.btn:active {
+.btn1:active {
     transform: translateY(0); /* Возвращает кнопку на место при нажатии (сбрасывает сдвиг) */
 }
+
+/*oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo*/
+
+.btn2 {
+    background-color: transparent; /* цвет фона */
+    color: #000000; /* цвет текста */
+    border: 2px solid #000000; /* границы */
+    padding: 3px 5px; /* Отступы внутри кнопки */
+    text-align: center; /* Центрирование текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Делает кнопку блочным элементом */
+    font-size: 8px; /* Размер шрифта */
+    margin: 4px 0; /* Отступ сверху и снизу */
+    cursor: pointer; /* Указатель мыши меняется на указатель */
+    border-radius: 3px; /* Скругленные углы */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+}
+
+.btn2:hover {
+    background-color: rgba(177, 0, 0, 0.63); /* Более темный зеленый цвет при наведении */
+    transform: translateY(-2px); /* Немного приподнимает кнопку при наведении */
+}
+
+.btn2:active {
+    transform: translateY(0); /* Возвращает кнопку на место при нажатии (сбрасывает сдвиг) */
+}
+
 
 input {
     border: 2px solid cadetblue; /* Устанавливаем границу для полей ввода */

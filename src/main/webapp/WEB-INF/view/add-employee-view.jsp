@@ -58,15 +58,15 @@
             <c:choose>
                 <c:when test="${not empty employee.firstName}">
                     <!-- Если id существует, это обновление -->
-                    <input type="submit" class="btn" value="Обновить">
+                    <input type="submit" class="btn1" value="Обновить">
                 </c:when>
                 <c:otherwise>
                     <!-- Если id пустое, это добавление нового сотрудника -->
-                    <input type="submit" class="btn" value="Добавить">
+                    <input type="submit" class="btn1" value="Добавить">
                 </c:otherwise>
             </c:choose>
 
-            <a href="${pageContext.request.contextPath}/" class="btn">Назад</a>
+            <a href="${pageContext.request.contextPath}/" class="btn1">Назад</a>
 
         </form:form>
         <br>

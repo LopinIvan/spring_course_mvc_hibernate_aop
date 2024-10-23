@@ -48,11 +48,11 @@
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
             <td>
-                <input type="button" class="btn" value="Изменить"
+                <input type="button" class="btn1" value="Изменить"
                        onclick="window.location.href='${updateButton}'">
-                <input type="button" class="btn" value="Удалить"
+                <input type="button" class="btn2" value="Удалить"
                        onclick="window.location.href='${deleteButton}'">
-                <input type="button" class="btn" value="Посмотреть детали"
+                <input type="button" class="btn1" value="Посмотреть детали"
                        onclick="window.location.href= '${detailButton}'"/>
             </td>
         </tr>
@@ -61,7 +61,7 @@
 
 </table>
 
-    <input type="button" class="btn" value="Добавить работника"
+    <input type="button" class="btn1" value="Добавить работника"
     onclick="window.location.href= 'addEmployee'"/>
     <br><br>
 

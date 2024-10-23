@@ -32,7 +32,7 @@
                 <td>${empDetails.password}</td>
                 <td>${empDetails.rating}</td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/" class="btn">Назад</a>
+                    <a href="${pageContext.request.contextPath}/" class="btn1">Назад</a>
                 </td>
             </tr>
 

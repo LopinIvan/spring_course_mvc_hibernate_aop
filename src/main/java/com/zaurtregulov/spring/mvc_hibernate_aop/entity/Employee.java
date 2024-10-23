@@ -24,7 +24,7 @@ public class Employee {
     private int salary;
 
     // Связь один-к-одному с EmpDetails
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private EmpDetails empDetails;
 
     public Employee() {

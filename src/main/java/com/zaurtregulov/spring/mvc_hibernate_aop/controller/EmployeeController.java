@@ -31,8 +31,8 @@ public class EmployeeController {
         return "all-employees-view";
     }
 
-    @RequestMapping("/addNewEmployee")
-    public String addNewEmployee(Model model) {
+    @RequestMapping("/addEmployee")
+    public String addEmployee(Model model) {
 
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
@@ -40,15 +40,15 @@ public class EmployeeController {
         return "add-employee-view";
     }
 
-    @RequestMapping("saveNewEmployee")
-    public String saveNewEmployee(@ModelAttribute("employee") Employee employee) {
+    @RequestMapping("saveEmployee")
+    public String saveEmployee(@ModelAttribute("employee") Employee employee) {
 
         EmpDetails empDetails = employee.getEmpDetails();
         if (empDetails != null) {
             empDetails.setEmployee(employee);   // Установим обратную связь с сотрудником
         }
 
-        employeeService.saveNewEmployee(employee);
+        employeeService.saveEmployee(employee);
 
         return "redirect:/";
     }
@@ -61,6 +61,14 @@ public class EmployeeController {
 
         return "add-employee-view";
 
+    }
+
+    @RequestMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("empId") int id) {
+
+        employeeService.deleteEmployee(id);
+
+        return "redirect:/";
     }
 }
 

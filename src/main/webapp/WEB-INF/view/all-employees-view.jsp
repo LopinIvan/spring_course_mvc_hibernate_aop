@@ -34,6 +34,10 @@
             <c:param name="empId" value="${emp.id}"/>
         </c:url>
 
+        <c:url var="deleteButton" value="/deleteEmployee">
+            <c:param name="empId" value="${emp.id}"/>
+        </c:url>
+
         <c:url var="detailButton" value="/details">
             <c:param name="empId" value="${emp.empDetails.id}"/>
         </c:url>
@@ -46,6 +50,8 @@
             <td>
                 <input type="button" class="btn" value="Изменить"
                        onclick="window.location.href='${updateButton}'">
+                <input type="button" class="btn" value="Удалить"
+                       onclick="window.location.href='${deleteButton}'">
                 <input type="button" class="btn" value="Посмотреть детали"
                        onclick="window.location.href= '${detailButton}'"/>
             </td>
@@ -56,7 +62,7 @@
 </table>
 
     <input type="button" class="btn" value="Добавить работника"
-    onclick="window.location.href= 'addNewEmployee'"/>
+    onclick="window.location.href= 'addEmployee'"/>
     <br><br>
 
 </div>

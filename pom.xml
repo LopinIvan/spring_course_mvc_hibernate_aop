@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.zaurtregulov.spring.mvc</groupId>
+  <groupId>com.lopinivan.spring.mvc</groupId>
   <artifactId>spring_course_mvc_hibernate_aop</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -13,6 +13,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <springframevork.version>6.1.13</springframevork.version>
   </properties>
 
   <dependencies>
@@ -35,7 +36,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>6.1.13</version>
+      <version>${springframevork.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
@@ -62,7 +63,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>6.1.13</version>
+      <version>${springframevork.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
@@ -135,6 +136,7 @@
   </dependencies>
 
   <build>
+
     <finalName>spring_course_mvc_hibernate_aop</finalName>
     <resources>
       <resource>
@@ -142,5 +144,37 @@
         <filtering>true</filtering>
       </resource>
     </resources>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.1.0</version> <!-- Укажите нужную версию -->
+        <executions>
+          <execution>
+            <id>enforce-rules</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <!--Правило для проверки конфликтов версий maven-->
+                <dependencyConvergance/>
+                <!-- Пример правила для версии JDK -->
+                <requireJavaVersion>
+                  <version>[${maven.compiler.source},)</version> <!-- Минимальная версия Java 17 -->
+                </requireJavaVersion>
+                <!-- Пример правила для запрета конфликтующих зависимостей -->
+                <requireNoDuplicates/>
+              </rules>
+              <fail>true</fail> <!-- Остановить сборку при нарушении правила -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
   </build>
 </project>

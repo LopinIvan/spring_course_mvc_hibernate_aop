@@ -17,7 +17,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.zaurtregulov.spring.mvc_hibernate_aop" />
+    <context:component-scan base-package="com.lopinivan.spring.mvc_hibernate_aop" />
 
     <mvc:annotation-driven/>
 
@@ -32,7 +32,7 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
-        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/my_db?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/my_db?useSSL=false" />
         <property name="user" value="bestuser" />
         <property name="password" value="bestuser" />
     </bean>
@@ -40,7 +40,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.zaurtregulov.spring.mvc_hibernate_aop.entity" />
+        <property name="packagesToScan" value="com.lopinivan.spring.mvc_hibernate_aop.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>

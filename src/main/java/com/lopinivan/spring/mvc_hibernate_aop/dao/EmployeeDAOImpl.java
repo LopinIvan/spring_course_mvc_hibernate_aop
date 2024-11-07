@@ -1,13 +1,11 @@
-package com.zaurtregulov.spring.mvc_hibernate_aop.dao;
+package com.lopinivan.spring.mvc_hibernate_aop.dao;
 
-import com.zaurtregulov.spring.mvc_hibernate_aop.entity.EmpDetails;
-import com.zaurtregulov.spring.mvc_hibernate_aop.entity.Employee;
+import com.lopinivan.spring.mvc_hibernate_aop.entity.Employee;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaDelete;
 import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

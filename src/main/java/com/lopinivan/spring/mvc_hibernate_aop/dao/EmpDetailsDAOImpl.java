@@ -1,6 +1,6 @@
-package com.zaurtregulov.spring.mvc_hibernate_aop.dao;
+package com.lopinivan.spring.mvc_hibernate_aop.dao;
 
-import com.zaurtregulov.spring.mvc_hibernate_aop.entity.EmpDetails;
+import com.lopinivan.spring.mvc_hibernate_aop.entity.EmpDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

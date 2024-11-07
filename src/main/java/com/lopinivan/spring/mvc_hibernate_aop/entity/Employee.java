@@ -1,4 +1,4 @@
-package com.zaurtregulov.spring.mvc_hibernate_aop.entity;
+package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
 
@@ -24,7 +24,7 @@ public class Employee {
     private int salary;
 
     // Связь один-к-одному с EmpDetails
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private EmpDetails empDetails;
 
     public Employee() {
@@ -85,7 +85,9 @@ public class Employee {
         if (this.empDetails != null) {      // Очищаем обратную связь, если empDetails был ранее установлен
             this.empDetails.setEmployee(null);
         }
+
         this.empDetails = empDetails;
+
         if(empDetails != null) {
             empDetails.setEmployee(this);   // Устанавливаем обратную связь только если empDetails не равен null
         }

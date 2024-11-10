@@ -2,6 +2,7 @@ package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
 
+//emp_details
 @Entity
 @Table(name = "emp_details")
 public class EmpDetails {

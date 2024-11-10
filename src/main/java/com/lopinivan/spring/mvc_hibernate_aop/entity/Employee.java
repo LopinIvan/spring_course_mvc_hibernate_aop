@@ -2,9 +2,6 @@ package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
 
-//Клас соответствует таблице employees в базе данных
-//Клас соответствует таблице employees в базе данных
-//employee table
 @Entity
 @Table(name = "employees")
 public class Employee {

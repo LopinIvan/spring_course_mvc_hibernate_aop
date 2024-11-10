@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 //Клас соответствует таблице employees в базе данных
 //Клас соответствует таблице employees в базе данных
+//employee table
 @Entity
 @Table(name = "employees")
 public class Employee {

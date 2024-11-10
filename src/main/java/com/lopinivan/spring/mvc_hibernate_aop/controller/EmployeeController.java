@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+//controller
 @Controller
 public class EmployeeController {
 

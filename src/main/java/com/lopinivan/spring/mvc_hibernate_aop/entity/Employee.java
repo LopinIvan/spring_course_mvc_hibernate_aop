@@ -1,7 +1,7 @@
 package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
-
+//123
 //employees clas
 //employees
 @Entity

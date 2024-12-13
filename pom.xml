@@ -52,28 +52,24 @@
       </exclusions>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
     <dependency>
-      <groupId>com.mchange</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.10.1</version>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>5.1.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
       <version>${springframevork.version}</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>6.1.0</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -93,21 +89,18 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://central.sonatype.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
     <dependency>
       <groupId>org.glassfish.web</groupId>
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.1</version>
     </dependency>
 
-    <!-- https://central.sonatype.com/artifact/org.glassfish.main.extras/glassfish-embedded-web -->
     <dependency>
       <groupId>org.glassfish.main.extras</groupId>
       <artifactId>glassfish-embedded-web</artifactId>
       <version>7.0.18</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
@@ -126,7 +119,6 @@
       <version>3.5.0.Final</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
@@ -165,16 +157,13 @@
             </goals>
             <configuration>
               <rules>
-                <!--Правило для проверки конфликтов версий maven-->
                 <dependencyConvergance/>
-                <!-- Пример правила для версии JDK -->
                 <requireJavaVersion>
-                  <version>[${maven.compiler.source},)</version> <!-- Минимальная версия Java 17 -->
+                  <version>[${maven.compiler.source},)</version>
                 </requireJavaVersion>
-                <!-- Пример правила для запрета конфликтующих зависимостей -->
                 <requireNoDuplicates/>
               </rules>
-              <fail>true</fail> <!-- Остановить сборку при нарушении правила -->
+              <fail>true</fail>
             </configuration>
           </execution>
         </executions>

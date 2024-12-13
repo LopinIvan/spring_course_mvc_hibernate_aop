@@ -73,20 +73,3 @@ public class EmployeeController {
         return "redirect:/";
     }
 }
-
-//    public void deleteEmployee(int id) {
-//        // Получаем сотрудника по ID
-//        Employee employee = employeeService.getEmployeeById(id);
-//
-//        if (employee != null) {
-//            // Получаем детали сотрудника
-//            EmpDetails empDetails = employee.getEmpDetails();
-//
-//            // Очищаем обратную связь, если детали существуют
-//            if (empDetails != null) {
-//                empDetails.setEmployee(null); // Удаляем обратную связь
-//            }
-//
-//            // Удаляем сотрудника
-//            employeeService.deleteEmployee(employee); // Удаление приводит к каскадному удалению деталей
-//        }

@@ -1,10 +1,14 @@
 package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
+
 //123
 //employees clas
 //employees
 @Entity
+@OptimisticLocking(type = OptimisticLockType.VERSION)
 @Table(name = "employees")
 public class Employee {
 
@@ -24,6 +28,10 @@ public class Employee {
 
     @Column(name = "emp_salary")
     private int salary;
+
+    @Version
+    @Column(name = "emp_version")
+    private int emp_version;
 
     // Связь один-к-одному с EmpDetails
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
@@ -83,16 +91,31 @@ public class Employee {
         return empDetails;
     }
 
+    public int getEmp_version() {
+        return emp_version;
+    }
+
+    public void setEmp_version(int emp_version) {
+        this.emp_version = emp_version;
+    }
+
     public void setEmpDetails(EmpDetails empDetails) {
-        if (this.empDetails != null) {      // Очищаем обратную связь, если empDetails был ранее установлен
-            this.empDetails.setEmployee(null);
-        }
-
         this.empDetails = empDetails;
-
-        if(empDetails != null) {
-            empDetails.setEmployee(this);   // Устанавливаем обратную связь только если empDetails не равен null
+        if (empDetails != null) {
+            empDetails.setEmployee(this);
         }
+    }
+
+    public void update(Employee updateEmployee) {
+        this.firstName = updateEmployee.getFirstName();
+        this.lastName = updateEmployee.getLastName();
+        this.department = updateEmployee.getDepartment();
+        this.salary = updateEmployee.getSalary();
+
+        this.empDetails.setEmail(updateEmployee.getEmpDetails().getEmail());
+        this.empDetails.setPhoneNumber(updateEmployee.getEmpDetails().getPhoneNumber());
+        this.empDetails.setPassword(updateEmployee.getEmpDetails().getPassword());
+        this.empDetails.setRating(updateEmployee.getEmpDetails().getRating());
     }
 
     @Override

@@ -106,18 +106,6 @@ public class Employee {
         }
     }
 
-    public void update(Employee updateEmployee) {
-        this.firstName = updateEmployee.getFirstName();
-        this.lastName = updateEmployee.getLastName();
-        this.department = updateEmployee.getDepartment();
-        this.salary = updateEmployee.getSalary();
-
-        this.empDetails.setEmail(updateEmployee.getEmpDetails().getEmail());
-        this.empDetails.setPhoneNumber(updateEmployee.getEmpDetails().getPhoneNumber());
-        this.empDetails.setPassword(updateEmployee.getEmpDetails().getPassword());
-        this.empDetails.setRating(updateEmployee.getEmpDetails().getRating());
-    }
-
     @Override
     public String toString() {
         return "Employee{" +

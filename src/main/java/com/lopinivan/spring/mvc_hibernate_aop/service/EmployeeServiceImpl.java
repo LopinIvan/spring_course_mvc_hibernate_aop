@@ -48,19 +48,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-// В этом случае
-// Объект employee не является управляемым (detached),
-// если он был создан или обновлён за пределами текущей транзакции.
-// Если объект имеет версию, но она устарела
-// (например, с момента загрузки объекта в другом запросе он был обновлён в базе),
-// то Hibernate обнаружит несоответствие версии и выбросит OptimisticLockException.
-
-//    @Override
-//    @Transactional
-//    public void saveEmployee(Employee employee) {
-//        employeeDAO.saveEmployee(employee);
-//    }
-
     @Override
     @Transactional
     public Employee getEmployeeById(int id) {

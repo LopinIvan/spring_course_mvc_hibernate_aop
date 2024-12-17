@@ -1,6 +1,7 @@
 package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OptimisticLockType;
 import org.hibernate.annotations.OptimisticLocking;
 
@@ -8,7 +9,8 @@ import org.hibernate.annotations.OptimisticLocking;
 //employees clas
 //employees
 @Entity
-@OptimisticLocking(type = OptimisticLockType.VERSION)
+//@OptimisticLocking(type = OptimisticLockType.ALL)
+//@DynamicUpdate
 @Table(name = "employees")
 public class Employee {
 
@@ -29,9 +31,10 @@ public class Employee {
     @Column(name = "emp_salary")
     private int salary;
 
-    @Version
-    @Column(name = "emp_version")
-    private int emp_version;
+//    Оптимистическая блокировка @OptimisticLocking(type = OptimisticLockType.VERSION)
+//    @Version
+//    @Column(name = "emp_version")
+//    private int emp_version;
 
     // Связь один-к-одному с EmpDetails
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
@@ -91,13 +94,13 @@ public class Employee {
         return empDetails;
     }
 
-    public int getEmp_version() {
-        return emp_version;
-    }
-
-    public void setEmp_version(int emp_version) {
-        this.emp_version = emp_version;
-    }
+//    public int getEmp_version() {
+//        return emp_version;
+//    }
+//
+//    public void setEmp_version(int emp_version) {
+//        this.emp_version = emp_version;
+//    }
 
     public void setEmpDetails(EmpDetails empDetails) {
         this.empDetails = empDetails;

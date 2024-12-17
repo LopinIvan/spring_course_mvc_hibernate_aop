@@ -1,13 +1,15 @@
 package com.lopinivan.spring.mvc_hibernate_aop.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OptimisticLockType;
 import org.hibernate.annotations.OptimisticLocking;
 
 //123
 //emp_details
 @Entity
-@OptimisticLocking(type = OptimisticLockType.VERSION)
+//@OptimisticLocking(type = OptimisticLockType.ALL)
+//@DynamicUpdate
 @Table(name = "emp_details")
 public class EmpDetails {
 
@@ -28,9 +30,10 @@ public class EmpDetails {
     @Column(name = "emp_details_rating")
     private int rating;
 
-    @Version
-    @Column(name = "emp_details_version")
-    private int emp_details_version;
+//    Оптимистическая блокировка @OptimisticLocking(type = OptimisticLockType.VERSION)
+//    @Version
+//    @Column(name = "emp_details_version")
+//    private int emp_details_version;
 
     // Связь один-к-одному с Employee (внешний ключ emp_id в таблице employee)
     @OneToOne
@@ -95,13 +98,13 @@ public class EmpDetails {
         this.employee = employee;
     }
 
-    public int getEmp_details_version() {
-        return emp_details_version;
-    }
-
-    public void setEmp_details_version(int emp_details_version) {
-        this.emp_details_version = emp_details_version;
-    }
+//    public int getEmp_details_version() {
+//        return emp_details_version;
+//    }
+//
+//    public void setEmp_details_version(int emp_details_version) {
+//        this.emp_details_version = emp_details_version;
+//    }
 
     @Override
     public String toString() {

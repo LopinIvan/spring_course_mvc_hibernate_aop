@@ -48,7 +48,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
         Session session = sessionFactory.getCurrentSession();
 
-        return session.find(Employee.class, id, LockModeType.OPTIMISTIC);
+//        Оптимистическая блокировка @OptimisticLocking(type = OptimisticLockType.VERSION)
+//        return session.find(Employee.class, id, LockModeType.OPTIMISTIC);
+
+        return session.find(Employee.class, id);
     }
 
     @Override

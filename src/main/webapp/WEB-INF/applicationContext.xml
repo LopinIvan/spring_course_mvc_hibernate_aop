@@ -36,7 +36,8 @@
 
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/my_db?useSSL=false"/>
+<!--        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/my_db?useSSL=false"/>-->
+        <property name="jdbcUrl" value="jdbc:postgresql://postgres:5432/my_db?useSSL=false"/>
         <property name="username" value="bestuser"/>
         <property name="password" value="bestuser"/>
 <!--        <property name="transactionIsolation" value="TRANSACTION_SERIALIZABLE"/>-->

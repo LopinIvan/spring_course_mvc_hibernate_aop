@@ -16,14 +16,12 @@ services:
     restart: always
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ivanlopin/lopin-corp-app:latest
     container_name: app-container
     networks:
       - app_network
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/my_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-service:5432/my_db
       SPRING_DATASOURCE_USERNAME: bestuser
       SPRING_DATASOURCE_PASSWORD: bestuser
     ports:
